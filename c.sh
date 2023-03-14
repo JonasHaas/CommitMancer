@@ -21,19 +21,19 @@ if [ $random_num -gt 4 ]; then
     git commit -m "Deleted previous files"
     echo "files in src deleted"
 
-    # Create new files with random names and commit for each file
-    for j in $(seq 1 $(( ${num_commits} - 1 ))); do
-        # Generate a random filename with .txt extension
-        filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1).txt
+        # Create new files with random names and commit for each file
+        for j in $(seq 1 $(( ${num_commits} - 1 ))); do
+            # Generate a random filename with .txt extension
+            filename=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1).txt
 
-        # Create the file and add its content
-        touch "src/$filename"
-        echo "This is a sample text for $filename" >> "src/$filename"
+            # Create the file and add its content
+            touch "src/$filename"
+            echo "This is a sample text for $filename" >> "src/$filename"
 
-        # Commit the file
-        git add "src/$filename"
-        git commit -m "Added $filename"
-    done
+            # Commit the file
+            git add "src/$filename"
+            git commit -m "Added $filename"
+        done
     done
 
 else
