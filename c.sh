@@ -19,6 +19,7 @@ if [ $random_num -gt 4 ]; then
     rm -rf src/*
     git add -A
     git commit -m "Deleted previous files"
+    echo "files in src deleted"
 
     # Create new files with random names and commit for each file
     for j in $(seq 1 $(( ${num_commits} - 1 ))); do
