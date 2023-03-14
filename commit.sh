@@ -15,11 +15,10 @@ commit_messages=(
 # and a larger range on weekdays (1-10), which presents a 20% chance of committing
 # on weekends and a 80% chance of committing on weekdays.
 if [ $(date +%u) -gt 5 ]; then
-    # Generate a random number between 1 and 4
+    # Generate a random number between 1 and 5
     random_num=$(( RANDOM % 5 + 1 ))
 else
-    # Generate a random number between 1 and 10
-    # 
+    # Generate a random number between 1 and 20
     random_num=$(( RANDOM % 20 + 1 ))
 fi
 
@@ -27,8 +26,8 @@ if [ $random_num -gt 4 ]; then
     num_commits=$(( RANDOM % 10 + 1 ))
     #echo "$num_commits commits today"
 
-    rm -rf src/*
-    git add .
+    rm -rf /home/whalesay/repositories/GitHub-Activity-Generator/src/*
+    git add /home/whalesay/repositories/GitHub-Activity-Generator/src
     git commit -m "daily cleanup"
 
     for (( i=1; i<=$num_commits; i++ )); do
@@ -45,7 +44,7 @@ if [ $random_num -gt 4 ]; then
         #echo $file_contents
 
         # Set the file path relative to the src folder
-        file_path="src/${filename}"
+        file_path="/home/whalesay/repositories/GitHub-Activity-Generator/src/${filename}"
 
         # Write the file to disk
         echo "$file_contents" > "$file_path"
@@ -56,6 +55,7 @@ if [ $random_num -gt 4 ]; then
         # Commit the changes with the random commit message
         git commit -m "$commit_message"
     done
+    git push
 else
     echo "No commits today"
 fi
