@@ -1,10 +1,3 @@
-# Create the src directory if it doesn't exist
-if [ ! -d "src" ]; then
-    mkdir "src"
-    git add -A
-    git commit -m "add src folder"
-fi
-
 # List of possible commit messages
 commit_messages=(
     "Fix bug"
@@ -33,7 +26,7 @@ if [ $random_num -gt 4 ]; then
     #echo "$num_commits commits today"
 
     rm -rf src/*
-    git add -A
+    git add .
     git commit -m "daily cleanup"
 
     for (( i=1; i<=$num_commits; i++ )); do
@@ -56,7 +49,7 @@ if [ $random_num -gt 4 ]; then
         echo "$file_contents" > "$file_path"
 
         # Stage the file for commit
-        git add "$file_name"
+        git add $file_path
 
         # Commit the changes with the random commit message
         git commit -m "$commit_message"
