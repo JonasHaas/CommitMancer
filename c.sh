@@ -14,10 +14,11 @@ if [ $random_num -gt 4 ]; then
     num_commits=$(( RANDOM % 10 + 1 ))
     echo "$num_commits commits today"
     rm -rf src/*
-    echo "files in src deleted"
     git add -A
     git commit -m "Deleted previous files"
-    echo "commited deleted files"
+    filename=$(date +%s | shuf | head -c 10).txt
+    echo $filename
+
 
 
 else
