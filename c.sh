@@ -51,6 +51,12 @@ if [ $random_num -gt 4 ]; then
         # Write the file to disk
         echo "$file_contents" > "$file_path"
 
+        # Stage the file for commit
+        git add "$file_name"
+
+        # Commit the changes with the random commit message
+        git commit -m "$commit_message"
+
     done
 else
     echo "No commits today"
