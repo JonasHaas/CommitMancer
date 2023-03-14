@@ -1,3 +1,5 @@
+#!/bin/bash 
+
 # List of possible commit messages
 commit_messages=(
     "Fix bug"
