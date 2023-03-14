@@ -1,17 +1,19 @@
 # Create the src directory if it doesn't exist
 if [ ! -d "src" ]; then
-  mkdir "src"
+    mkdir "src"
+    git add -A
+    git commit -m "add src folder"
 fi
 
 # List of possible commit messages
 commit_messages=(
-  "Fix bug"
-  "Add new feature"
-  "Update documentation"
-  "Refactor code"
-  "Improve performance"
-  "Fix typo"
-  "Add tests"
+    "Fix bug"
+    "Add new feature"
+    "Update documentation"
+    "Refactor code"
+    "Improve performance"
+    "Fix typo"
+    "Add tests"
 )
 
 # Generates a random number for committing, with a smaller range on weekends (1-4)
